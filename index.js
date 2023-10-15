@@ -109,6 +109,7 @@ window.onload = function init()
     alignmentStrength = alignmentSlider.value;
     cohesionStrength = cohesionSlider.value;
     numFish = numFishSlider.value;
+    numFishLabel.textContent = "Fjöldi fiska: " + numFish;
     populateFishes();
 
     var program = initShaders( gl, "vertex-shader", "fragment-shader" );
@@ -182,7 +183,7 @@ window.onload = function init()
 
     numFishSlider.addEventListener("input", function() {
         numFish = numFishSlider.value;
-        numFishLabel.textContent = "Fjöldi fiska : " + numFish;
+        numFishLabel.textContent = "Fjöldi fiska: " + numFish;
         fishes.length = 0;
         populateFishes();
     });
