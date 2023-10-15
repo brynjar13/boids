@@ -55,7 +55,7 @@ function alignment(fishdir, fishpos, fishindex) {
         yvel_avg = yvel_avg/neighboring_fish;
         zvel_avg = zvel_avg/neighboring_fish;
     }    
-    return vec3(xvel_avg * alignmentStrength, yvel_avg * alignmentStrength, zvel_avg * alignmentStrength);
+    return vec3(xvel_avg * alignmentStrength, yvel_avg * alignmentStrength, -zvel_avg * alignmentStrength);
 }
 
 function cohesion(fishdir, fishpos, fishindex) {
@@ -90,5 +90,5 @@ function cohesion(fishdir, fishpos, fishindex) {
     } else {
         return vec3(0.0, 0.0, 0.0);
     }
-    return vec3((xpos_avg - fishpos[0]) * cohesionStrength, (ypos_avg - fishpos[1]) * cohesionStrength, (zpos_avg - fishpos[2]) * cohesionStrength);
+    return vec3((xpos_avg - fishpos[0]) * cohesionStrength, (ypos_avg - fishpos[1]) * cohesionStrength, -(zpos_avg - fishpos[2]) * cohesionStrength);
 }
