@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script id="vertex-shader" type="x-shader/x-vertex">
+
+            attribute vec4 vPosition;
+            attribute float objectType;
+    
+            uniform mat4 projection;
+            uniform mat4 modelview;
+    
+            void main() 
+            {
+                gl_Position = projection * modelview * vPosition;
+            } 
+        </script>
+    
+        <script id="fragment-shader" type="x-shader/x-fragment">
+    
+            precision mediump float;
+
+            uniform vec4 fColor;
+    
+            void
+            main()
+            {
+                gl_FragColor = fColor;
+            }
+        </script>
+    
+        <script type="text/javascript" src="./common/webgl-utils.js"></script>
+        <script type="text/javascript" src="./common/initShaders.js"></script>
+        <script type="text/javascript" src="./common/MV.js"></script>
+        <script type="text/javascript" src="index.js"></script> 
+        <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript" src="boids.js"></script>
+    
+        <style>
+            body {
+                display: flex;
+            }
+            canvas {
+                width: 50%;
+                margin: 0 auto;
+            }
+            label {
+                font-weight: bold;
+            }
+            .slider {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="slider_box">
+            <div class="slider">
+                <label id="numFishLabel" for="numFish">Fjöldi fiska: 10</label>
+                <input type="range" id="numFish", min="1" max="40" value="10">
+            </div>
+            <div class="slider">
+                <label for="seperationStrength">Aðskilnaðar styrkur (seperation):</label>
+                <input type="range" id="seperationStrength" min="0" max="0.001" step="0.0001" value="0">
+            </div>
+            <div class="slider">
+                <label for="alignmentStrength">Uppröðunar styrkur (alignment):</label>
+                <input type="range" id="alignmentStrength" min="0" max="0.01" step="0.001" value="0">
+            </div>
+            <div class="slider">
+                <label for="cohesionStrength">Samloðunar styrkur (cohesion):</label>
+                <input type="range" id="cohesionStrength" min="0" max="0.001" step="0.0001" value="0">
+            </div>
+        </div>
+        <canvas id="gl-canvas" width="500" height="500">
+         Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+
+        <br> 
+    </body>
+</html>
