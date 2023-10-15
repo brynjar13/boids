@@ -248,7 +248,7 @@ function renderFish(fishindex) {
         shouldAlignment = true;
     }
     if (cohesionDir[0] != 0.0 && cohesionDir[1] != 0.0 && cohesionDir[2] != 0.0) {
-        fishDirection = vec3((fishDirection[0] + cohesionDir[0]) * 100, (fishDirection[1] + cohesionDir[1]) * 100, (fishDirection[2] + cohesionDir[2]) * 100);
+        fishDirection = vec3((fishDirection[0] + cohesionDir[0]), (fishDirection[1] + cohesionDir[1]), (fishDirection[2] + cohesionDir[2]));
         shouldCohesion = true;
     }
 

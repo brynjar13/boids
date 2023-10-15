@@ -23,7 +23,7 @@ function seperation(fishdir, fishpos, fishindex) {
         close_dy += dy;
         close_dz += dz;
     }
-    return vec3(close_dx * seperationStrength, close_dy * seperationStrength, close_dz * seperationStrength);
+    return vec3(close_dx * seperationStrength, close_dy * seperationStrength, -close_dz * seperationStrength);
 }
 
 function alignment(fishdir, fishpos, fishindex) {
